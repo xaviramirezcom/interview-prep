@@ -7,9 +7,10 @@ public class BinaryTreeMaximumPathSumSolution {
     int maxPathSum = Integer.MIN_VALUE;
 
     public int maxGain(TreeNode node) {
-        if(node==null) return 0;
+        if (node == null)
+            return 0;
 
-        int leftGain = Math.max(maxGain(node.left),0);
+        int leftGain = Math.max(maxGain(node.left), 0);
         int rightGain = Math.max(maxGain(node.right), 0);
 
         int currentPathPrice = node.val + leftGain + rightGain;
