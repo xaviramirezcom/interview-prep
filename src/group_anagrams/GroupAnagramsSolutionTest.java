@@ -1,18 +1,38 @@
 package group_anagrams;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 
 public class GroupAnagramsSolutionTest {
 
+    private List<List<String>> expected = new ArrayList<List<String>>();
+
     @Test
+    public void whenEmptyArrayThenReturnEmptyList() {
+        String[] strs = {};
+        GroupAnagramsSolution groupAnagramsSolution = new GroupAnagramsSolution();
+        List<List<String>> expected = new ArrayList<List<String>>();
+        assertEquals(expected, groupAnagramsSolution.groupAnagrams(strs));
 
-    public void when_Eat_Tea_Tan_Ate_Nat_Bat_Then_() {
+    }
 
-        // StrobogrammaticNumberIISolution solver = new StrobogrammaticNumberIISolution();
+    @Test
+    public void testCase1() {
 
-        // List<String> expected = solver.solve(2);
+        String[] strs = {"eat","tea","tan","ate","nat","bat"};
+        GroupAnagramsSolution groupAnagramsSolution = new GroupAnagramsSolution();
+        expected.add(List.of("bat"));
+        expected.add(List.of("nat","tan"));
+        expected.add(List.of("ate","eat","tea"));
 
-        // assertThat(expected, hasItems("11", "69", "96"));
+        assertEquals(expected.size(), groupAnagramsSolution.groupAnagrams(strs).size());
+
+    
+
     }
 }
